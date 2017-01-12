@@ -3,16 +3,34 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.xiejun.storm.titan</groupId>
-  <artifactId>stormtitan</artifactId>
+  <artifactId>titantest</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>stormtitan</name>
+  <name>titantest</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
+  <repositories>
+  <repository>
+  <id>nexus</id>
+  <name>myownnexus</name>
+  <url>http://maven.aliyun.com:8081/nexus/content/groups/public</url>
+  </repository>
+  </repositories>
+  
+  <pluginRepositories>
+  <pluginRepository>
+  <id>nexusp</id>
+  <name>myownnexusp</name>
+  <url>http://maven.aliyun.com:8081/nexus/content/groups/public</url>
+  <releases><enabled>true</enabled></releases>
+  <snapshots><enabled>true</enabled></snapshots>
+  </pluginRepository>
+  </pluginRepositories>
 
   <dependencies>
     <dependency>
@@ -21,5 +39,44 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+	<dependency>
+	  <groupId>org.apache.kafka</groupId>
+	  <artifactId>kafka-clients</artifactId>
+	  <version>0.10.1.0</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.apache.storm</groupId>
+	  <artifactId>storm-core</artifactId>
+	  <version>1.0.2</version>
+	  <exclusions>
+	     <exclusion>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<groupId>org.slf4j</groupId>
+		</exclusion>
+	   </exclusions>
+	</dependency>
+	<dependency>
+	  <groupId>org.apache.storm</groupId>
+	  <artifactId>storm-kafka</artifactId>
+	  <version>1.0.2</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.apache.kafka</groupId>
+	  <artifactId>kafka_2.11</artifactId>
+	  <version>0.10.1.0</version>
+	</dependency>
+	
+<dependency>
+  <groupId>com.tinkerpop.blueprints</groupId>
+  <artifactId>blueprints</artifactId>
+  <version>2.6.0</version>
+  <type>pom</type>
+</dependency>
+
+<dependency>
+  <groupId>com.tinkerpop.blueprints</groupId>
+  <artifactId>blueprints-core</artifactId>
+  <version>2.6.0</version>
+</dependency>
   </dependencies>
 </project>
